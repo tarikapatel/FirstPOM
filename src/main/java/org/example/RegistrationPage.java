@@ -5,20 +5,23 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class RegistrationPage extends Utils{
-    By _firstname = By.id("FirstName");
+    By _firstName = By.id("FirstName");
     By _lastName = By.id("LastName");
     By _email = By.id("Email");
     By _password = By.id("Password");
     By _confirmPassword = By.id("ConfirmPassword");
+    By _clickOnRegisterButton = By.id("register-button");
 
     public void verifyUserIsOnRegisterPage(){
         Assert.assertTrue(driver.getCurrentUrl().contains("register"));
     }
     public void userEntersRegistrationDetails(){
+        LoadProp loadProp = new LoadProp();
         //Type first name
-        typeText(_firstname,"John");
+        typeText(_firstName,loadProp.getProperty("firstName"));
         //type second name
-        typeText(_lastName,"Smith");
+
+        typeText(_lastName,loadProp.getProperty("lastName"));
         //select day from dropdown
         Select selectDay = new Select(driver.findElement(By.name("DateOfBirthDay")));
         selectDay.selectByVisibleText("15");
@@ -44,6 +47,6 @@ public class RegistrationPage extends Utils{
     }
     public void clickOnRegisterButton(){
         //click on register button
-        clickOnElement(By.id("register-button"));
+        clickOnElement(_clickOnRegisterButton);
     }
 }

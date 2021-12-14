@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class BrowserManager extends BasePage {
 
     String browserName = "Chrome";
-
+    LoadProp loadProp = new LoadProp();
     public void openBrowser()
     {
         if (browserName.equalsIgnoreCase("Chrome"))
@@ -28,7 +28,8 @@ public class BrowserManager extends BasePage {
             System.out.println("Your browser name is wrong.");
         }
         driver.manage().window().maximize();
-        driver.get("https://demo.nopcommerce.com/");
+        //driver.get("https://demo.nopcommerce.com/");
+        driver.get(loadProp.getProperty("url"));
     }
 
 
