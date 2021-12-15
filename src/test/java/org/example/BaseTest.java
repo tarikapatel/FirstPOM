@@ -20,6 +20,6 @@ public class BaseTest extends BrowserManager{
             if (!result.isSuccess()){
                 captureScreenshot(result.getName());
             }
-            driver.close();
+            browserManager.closeBrowser();
     }
 }

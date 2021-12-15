@@ -6,7 +6,7 @@ import org.testng.Assert;
 public class ComputersPage extends Utils {
 
     public void verifyUserIsOnComputerPage() {
-        Assert.assertTrue(driver.getCurrentUrl().contains("computers"));
+        Assert.assertTrue(driver.getCurrentUrl().contains(loadProp.getProperty("UserIsOnComputerPageContains")));
     }
     public void clickOnDesktopsMenu(){
         clickOnElement(By.xpath("//ul[@class='sublist']/li[1]/a"));

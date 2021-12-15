@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -38,6 +39,18 @@ public class Utils extends BrowserManager{
     public static void waitForVisible(By by, int timeInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeInSeconds);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+    public static void selectByDropDownIndexValue (By by, String day){
+        Select select_date = new Select(driver.findElement(by));
+        select_date.selectByIndex(Integer.parseInt(String.valueOf(day)));
+    }
+    public static void selectByValue (By by, String month) {
+        Select select_month = new Select(driver.findElement(by));
+        select_month.selectByValue(month);
+    }
+    public static void selectDropDownByVisibleText(By by, String year){
+        Select select_year = new Select(driver.findElement(by));
+        select_year.selectByVisibleText(year);
     }
 
     public static void captureScreenshot(String fileName)

@@ -6,14 +6,19 @@ import org.testng.Assert;
 import static org.testng.Assert.assertEquals;
 
 public class NewReleasePage extends Utils{
+    By _AddNewComment_CommentTitle = By.id("AddNewComment_CommentTitle");
+    By _AddNewComment_CommentText = By.id("AddNewComment_CommentText");
+
     public void verifyUserIsOnNewReleasePage(){
-        Assert.assertTrue(driver.getCurrentUrl().contains("nopcommerce-new-release"));
+        Assert.assertTrue(driver.getCurrentUrl().contains(loadProp.getProperty("UserIsOnNewReleasePageContains")));
     }
     public void userEnterCommentDetails(){
         //type title
-        typeText(By.id("AddNewComment_CommentTitle"),"Review");
+        typeText(_AddNewComment_CommentTitle,loadProp.getProperty("Commenttitle"));
+        //typeText(By.id("AddNewComment_CommentTitle"),"Review");
         //type Comment
-        typeText(By.id("AddNewComment_CommentText"),"Good Experience");
+        typeText(_AddNewComment_CommentText, loadProp.getProperty("AddNewCommentCommentText"));
+        //typeText(By.id("AddNewComment_CommentText"),"Good Experience");
         //wait for new comment button is recognised
         waitForClickable(By.xpath("//button[@class='button-1 news-item-add-comment-button']"), 20);
     }
@@ -25,7 +30,7 @@ public class NewReleasePage extends Utils{
     }
     public void userHasAddedNewCommentSuccessfully(){
         String actualSuccessCommentMessage = getTextFromElement(By.xpath("//div[@class='result']"));
-        String expectedSuccessCommentMessage = "News comment is successfully added.";
+        String expectedSuccessCommentMessage = loadProp.getProperty("expectedSuccessCommentMessage");
         assertEquals(actualSuccessCommentMessage,expectedSuccessCommentMessage);
     }
 }
