@@ -28,16 +28,10 @@ public class RegistrationPage extends Utils{
         typeText(_lastName,loadProp.getProperty("lastName"));
         //select date from dropdown
         selectByDropDownIndexValue(_DateOfBirthDay, loadProp.getProperty("DateOfBirthDay"));
-        //Select selectDay = new Select(driver.findElement(By.name("DateOfBirthDay")));
-        //selectDay.selectByVisibleText("15");
         //select month from dropdown
         selectByValue(_DateOfBirthMonth, loadProp.getProperty("DateOfBirthMonth"));
-        //Select selectMonth = new Select(driver.findElement(By.name("DateOfBirthMonth")));
-        //selectMonth.selectByValue("4");
         //select year from dropdown
         selectDropDownByVisibleText(_DobYear, loadProp.getProperty("Year"));
-        //Select selectYear = new Select(driver.findElement(By.name("DateOfBirthYear")));
-        //selectYear.selectByValue("1926");
         //Type email
         String email = loadProp.getProperty("emailPartOne")+ currentTimeStamp() + loadProp.getProperty("emailPartTwo");
         //String email = "Johnsmith+" + currentTimeStamp() + "@gmail.com";
@@ -49,10 +43,9 @@ public class RegistrationPage extends Utils{
         clickOnElement(By.id("Newsletter"));
         //Type password
         typeText(_password, loadProp.getProperty("Password"));
-        //typeText(_password, "Test123!");
         //type confirm password
         typeText(_confirmPassword, loadProp.getProperty("ConfirmPassword"));
-        //typeText(_confirmPassword, "Test123!");
+
 
     }
     public void clickOnRegisterButton(){

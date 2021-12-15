@@ -15,10 +15,8 @@ public class NewReleasePage extends Utils{
     public void userEnterCommentDetails(){
         //type title
         typeText(_AddNewComment_CommentTitle,loadProp.getProperty("Commenttitle"));
-        //typeText(By.id("AddNewComment_CommentTitle"),"Review");
         //type Comment
         typeText(_AddNewComment_CommentText, loadProp.getProperty("AddNewCommentCommentText"));
-        //typeText(By.id("AddNewComment_CommentText"),"Good Experience");
         //wait for new comment button is recognised
         waitForClickable(By.xpath("//button[@class='button-1 news-item-add-comment-button']"), 20);
     }
